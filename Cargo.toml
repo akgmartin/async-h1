@@ -17,6 +17,11 @@ authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
 readme = "README.md"
 edition = "2018"
 
+[features]
+default = ["client", "server"]
+client = []
+server = []
+
 [dependencies]
 httparse = "1.3.4"
 async-std = "1.7.0"

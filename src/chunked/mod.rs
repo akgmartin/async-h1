@@ -1,5 +1,7 @@
+//! handles chunked encoding and decoding
+
 mod decoder;
 mod encoder;
 
-pub(crate) use decoder::ChunkedDecoder;
+pub use decoder::ChunkedDecoder;
 pub(crate) use encoder::ChunkedEncoder;

@@ -107,14 +107,24 @@ const MAX_HEAD_LENGTH: usize = 8 * 1024;
 mod body_encoder;
 mod chunked;
 mod date;
+pub use chunked::ChunkedDecoder;
+
+#[cfg(feature = "server")]
 mod read_notifier;
 
+#[cfg(feature = "client")]
 pub mod client;
+
+#[cfg(feature = "server")]
 pub mod server;
 
 use async_std::io::Cursor;
 use body_encoder::BodyEncoder;
+
+#[cfg(feature = "client")]
 pub use client::connect;
+
+#[cfg(feature = "server")]
 pub use server::{accept, accept_with_opts, ServerOptions};
 
 #[derive(Debug)]
